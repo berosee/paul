@@ -1,248 +1,92 @@
 const playlists = {
     "enka": [
         {
-            "title": "01. Sonata Pathetique",
-            "url": "music/enka/01. Sonata Pathetique.flac"
+            "title": "01. Please Return To Pusan Port",
+            "url": "music/enka/01. Please Return To Pusan Port.mp3"
         },
         {
-            "title": "02. Aranjuez",
-            "url": "music/enka/02. Aranjuez.flac"
+            "title": "02. On Ne Vit Pas Sans Se Dire Adieu",
+            "url": "music/enka/02. On Ne Vit Pas Sans Se Dire Adieu.mp3"
         },
         {
-            "title": "03. Les Parapluies De Cherbourg",
-            "url": "music/enka/03. Les Parapluies De Cherbourg.flac"
+            "title": "03. Serenade To Summertime",
+            "url": "music/enka/03. Serenade To Summertime.mp3"
         },
         {
-            "title": "04. Jeux Interdits",
-            "url": "music/enka/04. Jeux Interdits.flac"
+            "title": "04. Iberia Siempre Iberia",
+            "url": "music/enka/04. Iberia Siempre Iberia.mp3"
         },
         {
-            "title": "05. La Boheme",
-            "url": "music/enka/05. La Boheme.flac"
+            "title": "05. Aranjuez",
+            "url": "music/enka/05. Aranjuez.mp3"
         },
         {
-            "title": "06. I Like Chopin",
-            "url": "music/enka/06. I Like Chopin.flac"
+            "title": "06. Rain And Tears",
+            "url": "music/enka/06. Rain And Tears.mp3"
         },
         {
             "title": "07. 13 Jours En France",
-            "url": "music/enka/07. 13 Jours En France.flac"
+            "url": "music/enka/07. 13 Jours En France.mp3"
         },
         {
-            "title": "08. Apres Toi",
-            "url": "music/enka/08. Apres Toi.flac"
+            "title": "08. Les Parapluies De Cherbourg",
+            "url": "music/enka/08. Les Parapluies De Cherbourg.mp3"
         },
         {
-            "title": "09. Comme J'ai Toujours Envie D'Aimer",
-            "url": "music/enka/09. Comme J'ai Toujours Envie D'Aimer.flac"
+            "title": "09. Sympathy",
+            "url": "music/enka/09. Sympathy.mp3"
         },
         {
-            "title": "10. Qui Saura ",
-            "url": "music/enka/10. Qui Saura .flac"
+            "title": "10. Qui Saura",
+            "url": "music/enka/10. Qui Saura.mp3"
         },
         {
-            "title": "11. Mother Of Mine",
-            "url": "music/enka/11. Mother Of Mine.flac"
+            "title": "11. Elcondor Pasa",
+            "url": "music/enka/11. Elcondor Pasa.mp3"
         },
         {
-            "title": "12. Hymne A L'Amour",
-            "url": "music/enka/12. Hymne A L'Amour.flac"
+            "title": "12. Holidays",
+            "url": "music/enka/12. Holidays.mp3"
         },
         {
-            "title": "13. Rain And Tears",
-            "url": "music/enka/13. Rain And Tears.flac"
+            "title": "13. Goodbye My Love Goodbye",
+            "url": "music/enka/13. Goodbye My Love Goodbye.mp3"
         },
         {
-            "title": "14. Bilitis",
-            "url": "music/enka/14. Bilitis.flac"
+            "title": "14. Yesterday Once More",
+            "url": "music/enka/14. Yesterday Once More.mp3"
         },
         {
-            "title": "15. Papillon",
-            "url": "music/enka/15. Papillon.flac"
+            "title": "15. Une Belle Histoire",
+            "url": "music/enka/15. Une Belle Histoire.mp3"
         },
         {
-            "title": "16. Pearl Fisher",
-            "url": "music/enka/16. Pearl Fisher.flac"
+            "title": "16. Mother Of Mine",
+            "url": "music/enka/16. Mother Of Mine.mp3"
         },
         {
-            "title": "17. Song For Anna",
-            "url": "music/enka/17. Song For Anna.flac"
+            "title": "17. Je T’Aime…Moi Non Plus",
+            "url": "music/enka/17. Je T’Aime…Moi Non Plus.mp3"
         },
         {
-            "title": "18. Piano Ballade",
-            "url": "music/enka/18. Piano Ballade.flac"
+            "title": "18. The Bird Of Wounds",
+            "url": "music/enka/18. The Bird Of Wounds.mp3"
         },
         {
-            "title": "19. Je Pars",
-            "url": "music/enka/19. Je Pars.flac"
+            "title": "19. Mamy Blue",
+            "url": "music/enka/19. Mamy Blue.mp3"
         },
         {
-            "title": "20. Un Banc, Un Arbre, Une Rue",
-            "url": "music/enka/20. Un Banc, Un Arbre, Une Rue.flac"
+            "title": "20. Arirang",
+            "url": "music/enka/20. Arirang.mp3"
         },
         {
-            "title": "21. Yesterday",
-            "url": "music/enka/21. Yesterday.flac"
+            "title": "21. Pearl Fisher",
+            "url": "music/enka/21. Pearl Fisher.mp3"
         },
         {
-            "title": "22. Romeo Et Juliette",
-            "url": "music/enka/22. Romeo Et Juliette.flac"
-        },
-        {
-            "title": "23. Le Piano Sur La Vague",
-            "url": "music/enka/23. Le Piano Sur La Vague.flac"
-        },
-        {
-            "title": "24. Vivre Pour Vivre",
-            "url": "music/enka/24. Vivre Pour Vivre.flac"
-        },
-        {
-            "title": "25. La Reine De Saba",
-            "url": "music/enka/25. La Reine De Saba.flac"
-        },
-        {
-            "title": "26. The Windmills of Your Mind",
-            "url": "music/enka/26. The Windmills of Your Mind.flac"
-        },
-        {
-            "title": "27. Soleado",
-            "url": "music/enka/27. Soleado.flac"
-        },
-        {
-            "title": "28. Une Petite Cantate",
-            "url": "music/enka/28. Une Petite Cantate.flac"
-        },
-        {
-            "title": "29. Le Piano De L'automne",
-            "url": "music/enka/29. Le Piano De L'automne.flac"
-        },
-        {
-            "title": "30. Le Temps Des Fleurs",
-            "url": "music/enka/30. Le Temps Des Fleurs.flac"
-        },
-        {
-            "title": "31. Liszt - Liebestraum No. 3 in A flat",
-            "url": "music/enka/31. Liszt - Liebestraum No. 3 in A flat.flac"
-        },
-        {
-            "title": "32. Mama (Bono; Monty)",
-            "url": "music/enka/32. Mama (Bono; Monty).flac"
-        },
-        {
-            "title": "33. Comme Toujours",
-            "url": "music/enka/33. Comme Toujours.flac"
-        },
-        {
-            "title": "34. Brasilia Carnaval",
-            "url": "music/enka/34. Brasilia Carnaval.flac"
-        },
-        {
-            "title": "35. My House And The River",
-            "url": "music/enka/35. My House And The River.flac"
-        },
-        {
-            "title": "36. Sonia",
-            "url": "music/enka/36. Sonia.flac"
-        },
-        {
-            "title": "37. San Francisco",
-            "url": "music/enka/37. San Francisco.flac"
-        },
-        {
-            "title": "38. Chanson D'amour",
-            "url": "music/enka/38. Chanson D'amour.flac"
-        },
-        {
-            "title": "39. Zaide",
-            "url": "music/enka/39. Zaide.flac"
-        },
-        {
-            "title": "40. Chirpy Chirpy (Cheep Cheep)",
-            "url": "music/enka/40. Chirpy Chirpy (Cheep Cheep).flac"
-        },
-        {
-            "title": "41. Eleanor Rigby",
-            "url": "music/enka/41. Eleanor Rigby.flac"
-        },
-        {
-            "title": "42. Contigo Mi Vida",
-            "url": "music/enka/42. Contigo Mi Vida.flac"
-        },
-        {
-            "title": "43. Czardas",
-            "url": "music/enka/43. Czardas.flac"
-        },
-        {
-            "title": "44. Iberia Siempre Iberia",
-            "url": "music/enka/44. Iberia Siempre Iberia.flac"
-        },
-        {
-            "title": "45. Memory",
-            "url": "music/enka/45. Memory.flac"
-        },
-        {
-            "title": "46. Goodbye My Love Goodbye",
-            "url": "music/enka/46. Goodbye My Love Goodbye.flac"
-        },
-        {
-            "title": "47. My Reason",
-            "url": "music/enka/47. My Reason.flac"
-        },
-        {
-            "title": "48. Pegase",
-            "url": "music/enka/48. Pegase.flac"
-        },
-        {
-            "title": "49. Last Tango In Paris",
-            "url": "music/enka/49. Last Tango In Paris.flac"
-        },
-        {
-            "title": "50. This is My Song",
-            "url": "music/enka/50. This is My Song.flac"
-        },
-        {
-            "title": "51. Katioucha",
-            "url": "music/enka/51. Katioucha.flac"
-        },
-        {
-            "title": "52. La Bikina",
-            "url": "music/enka/52. La Bikina.flac"
-        },
-        {
-            "title": "53. Melancolie (Melody Lady)",
-            "url": "music/enka/53. Melancolie (Melody Lady).flac"
-        },
-        {
-            "title": "54. Inch Allah (Adamo)",
-            "url": "music/enka/54. Inch Allah (Adamo).flac"
-        },
-        {
-            "title": "55. Io Che Non Vivo",
-            "url": "music/enka/55. Io Che Non Vivo.flac"
-        },
-        {
-            "title": "56. Last Summer Day",
-            "url": "music/enka/56. Last Summer Day.flac"
-        },
-        {
-            "title": "57. Paris Ballade",
-            "url": "music/enka/57. Paris Ballade.flac"
-        },
-        {
-            "title": "58. The Bird Of Wounds (Nagekidori)",
-            "url": "music/enka/58. The Bird Of Wounds (Nagekidori).flac"
-        },
-        {
-            "title": "59. Meme Si Tu Revenais Love in Every Room",
-            "url": "music/enka/59. Meme Si Tu Revenais Love in Every Room.flac"
-        },
-        {
-            "title": "60. Une Belle Histoire",
-            "url": "music/enka/60. Une Belle Histoire.flac"
-        },
-        {
-            "title": "61. On Ne Vit Pas Sans Se Dire Adieu",
-            "url": "music/enka/61. On Ne Vit Pas Sans Se Dire Adieu.flac"
+            "title": "22. Isadora",
+            "url": "music/enka/22. Isadora.mp3"
         }
     ],
     "jazz": [
