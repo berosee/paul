@@ -3,23 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>mpplay - Extended List</title>
+  <title>mpplay - Final Stable</title>
   <style>
     :root {
       --neon-blue: #00d2ff;
       --deep-blue: #4a7cff;
     }
 
+    html, body { 
+      height: 100%; margin: 0; padding: 0; 
+      overflow: hidden; background: #121212; 
+    }
+
     body {
-      margin: 0; padding: 0;
       font-family: 'Pretendard', sans-serif;
-      background: #121212;
       color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 100vh;
-      overflow: hidden;
+    }
+
+    .fixed-header {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #121212;
+      z-index: 100;
+      padding-bottom: 5px;
+      flex-shrink: 0;
     }
 
     .nav, .player-card, .playlist-wrapper {
@@ -27,121 +39,91 @@
       max-width: 360px;
     }
 
-    /* 네비게이션 */
     .nav {
-      display: flex; gap: 4px; margin: 12px 0;
+      display: flex; gap: 4px; margin: 10px 0;
       background: rgba(255,255,255,0.05); padding: 4px; border-radius: 50px;
     }
     .nav a {
       flex: 1; text-decoration: none; color: rgba(255, 255, 255, 0.4);
-      padding: 8px 0; text-align: center; border-radius: 25px;
-      font-size: 11px; font-weight: bold;
+      padding: 8px 0; text-align: center; border-radius: 25px; font-size: 11px; font-weight: bold;
     }
-    .nav a.active {
-      background: var(--deep-blue); color: #fff;
-      box-shadow: 0 0 10px var(--deep-blue);
-    }
+    .nav a.active { background: var(--deep-blue); color: #fff; box-shadow: 0 0 10px var(--deep-blue); }
 
-    /* 플레이어 카드 (슬림 버전) */
     .player-card {
       background: #0f172a;
-      border-radius: 20px; padding: 20px 18px 15px 18px;
+      border-radius: 20px; padding: 15px 18px;
       text-align: center; border: 1px solid rgba(0, 210, 255, 0.2);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-      margin-bottom: 12px;
-      box-sizing: border-box;
     }
 
-    .song-info .title { 
-      font-size: 16px; font-weight: bold; margin-bottom: 15px; 
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
-
-    .status-row {
-      display: flex; justify-content: center; align-items: center;
-      gap: 12px; margin-bottom: 15px;
-    }
-    .time-display { font-size: 20px; font-family: 'Arial', sans-serif; color: #fff; font-weight: 300; }
-
+    .song-info .title { font-size: 16px; font-weight: bold; margin-bottom: 12px; height: 1.2em; overflow: hidden; }
+    .status-row { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .time-display { font-size: 20px; font-family: 'Arial', sans-serif; }
     .bar-container { display: flex; gap: 3px; align-items: flex-end; height: 16px; }
     .bar { width: 3px; background: var(--neon-blue); border-radius: 1px; height: 4px; }
     .bar.playing { animation: bounce 0.6s ease-in-out infinite alternate; }
     @keyframes bounce { from { height: 4px; } to { height: 16px; } }
 
-    .progress-container { width: 100%; cursor: pointer; padding: 5px 0; margin-bottom: 12px; }
-    .progress-bg { height: 2px; background: rgba(255, 255, 255, 0.1); border-radius: 2px; }
-    .progress-fill { width: 0%; height: 100%; background: var(--neon-blue); box-shadow: 0 0 8px var(--neon-blue); }
+    .progress-container { width: 100%; cursor: pointer; padding: 5px 0; margin-bottom: 10px; }
+    .progress-bg { height: 2px; background: rgba(255, 255, 255, 0.1); }
+    .progress-fill { width: 0%; height: 100%; background: var(--neon-blue); }
 
-    .controls { display: flex; justify-content: center; align-items: center; gap: 25px; }
-    .btn { background: none; border: none; color: #4b5563; font-size: 20px; cursor: pointer; }
+    .controls { display: flex; justify-content: center; align-items: center; gap: 20px; }
     .btn-play-box { 
       border: 1.5px solid #fff; border-radius: 10px;
-      width: 50px; height: 45px; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+      width: 50px; height: 42px; display: flex; align-items: center; justify-content: center;
       cursor: pointer;
     }
-    .btn-play-box span { color: var(--neon-blue); font-size: 24px; }
-
-    /* 리스트 영역 - 높이를 약 12곡 정도로 확장 */
+   /* [수정된 리스트 영역] 줄 간격을 좁혀 더 많은 곡이 보이게 함 */
     .playlist-wrapper { 
       flex: 1; 
       overflow-y: auto; 
-      background: rgba(0,0,0,0.2); 
+      background: rgba(0,0,0,0.3); 
       border-radius: 15px 15px 0 0;
-      /* 12곡이 보이도록 최소 높이 설정 (곡당 약 41px 기준) */
-      max-height: 500px; 
-    }
+      -webkit-overflow-scrolling: touch;
+      margin-top: 5px;
+      padding-bottom: 20px; /* 하단 여백을 살짝 줄임 */
+    }    
     .playlist-table { width: 100%; border-collapse: collapse; }
     .playlist-table td { 
-      padding: 11px 18px; /* 간격을 살짝 줄여 더 많은 곡이 보이게 조정 */
-      font-size: 14px; 
+      /* 위아래 패딩을 13px -> 9px로 줄여 줄 간격을 좁혔습니다 */
+      padding: 9px 18px; 
+      font-size: 14px; /* 폰트 크기는 유지하여 예쁜 비율 고정 */
       border-bottom: 1px solid rgba(255,255,255,0.03); 
       color: #999; cursor: pointer; 
-    }
+      line-height: 1.4; /* 글자 자체의 높이도 최적화 */
+    }    
     .playlist-table tr.active td { 
       color: var(--neon-blue); 
       font-weight: bold; 
-      background: rgba(0,210,255,0.08); 
+      background: rgba(0, 210, 255, 0.15); /* 현재 곡 배경을 살짝 더 진하게 */
     }
-
-    /* 스크롤바 디자인 (깔끔하게) */
-    .playlist-wrapper::-webkit-scrollbar { width: 4px; }
-    .playlist-wrapper::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
   </style>
 </head>
 <body>
 
-<div class="nav">
-  <a href="?cat=old" id="nav-old">OLD</a>
-  <a href="?cat=enka" id="nav-enka">ENKA</a>
-  <a href="?cat=jazz" id="nav-jazz">JAZZ</a>
-</div>
-
-<div class="player-card">
-  <div class="song-info">
-    <div class="title" id="labelTitle">곡을 선택해 주세요</div>
+<div class="fixed-header">
+  <div class="nav">
+    <a href="?cat=old" id="nav-old">OLD</a>
+    <a href="?cat=enka" id="nav-enka">ENKA</a>
+    <a href="?cat=jazz" id="nav-jazz">JAZZ</a>
   </div>
 
-  <div class="status-row">
-    <div class="bar-container" id="visualizer">
-      <div class="bar" style="animation-delay: 0.1s"></div>
-      <div class="bar" style="animation-delay: 0.3s"></div>
-      <div class="bar" style="animation-delay: 0.2s"></div>
-      <div class="bar" style="animation-delay: 0.4s"></div>
+  <div class="player-card">
+    <div class="song-info"><div class="title" id="labelTitle">곡을 선택해 주세요</div></div>
+    <div class="status-row">
+      <div class="bar-container" id="visualizer">
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+      </div>
+      <div class="time-display"><span id="curTime">00:00</span> / <span id="durTime">00:00</span></div>
     </div>
-    <div class="time-display"><span id="curTime">00:00</span> / <span id="durTime">00:00</span></div>
-  </div>
-
-  <div class="progress-container" id="progArea">
-    <div class="progress-bg"><div class="progress-fill" id="progFill"></div></div>
-  </div>
-
-  <div class="controls">
-    <button class="btn" id="btnPrev">⏮</button>
-    <div class="btn-play-box" id="btnPlayWrap">
-      <span id="btnIcon">▶</span>
+    <div class="progress-container" id="progArea">
+      <div class="progress-bg"><div class="progress-fill" id="progFill"></div></div>
     </div>
-    <button class="btn" id="btnNext">⏭</button>
+    <div class="controls">
+      <button style="background:none;border:none;color:#4b5563;font-size:20px;cursor:pointer;" id="btnPrev">⏮</button>
+      <div class="btn-play-box" id="btnPlayWrap"><span id="btnIcon" style="color:var(--neon-blue);font-size:24px;">▶</span></div>
+      <button style="background:none;border:none;color:#4b5563;font-size:20px;cursor:pointer;" id="btnNext">⏭</button>
+    </div>
   </div>
 </div>
 
@@ -150,7 +132,6 @@
 </div>
 
 <script>
-// 데이터 예시 (충분한 곡 수 추가)
 const playlists = {
     "enka": [
          {
@@ -467,9 +448,6 @@ const playlists = {
         }
     ]
 };
-
-
-
 const params = new URLSearchParams(window.location.search);
 const curCat = params.get("cat") || "old";
 const curList = playlists[curCat] || playlists["old"];
@@ -478,9 +456,11 @@ document.getElementById("nav-" + curCat).classList.add("active");
 
 const audio = new Audio();
 let curIdx = 0;
-let isLoaded = false; 
+let isLoaded = false;
 
 const listTable = document.getElementById("listTable");
+const scrollContainer = document.getElementById("scrollContainer");
+
 curList.forEach((song, i) => {
   const tr = document.createElement("tr");
   tr.innerHTML = `<td>${song.title}</td>`;
@@ -499,7 +479,7 @@ function playSong(i) {
   curIdx = i;
   isLoaded = true;
   audio.src = curList[curIdx].url;
-  audio.play().catch(e => console.log("재생 오류"));
+  audio.play().catch(e => console.log("재생 차단됨"));
   document.getElementById("labelTitle").textContent = curList[curIdx].title;
   updateUI();
 }
@@ -507,30 +487,25 @@ function playSong(i) {
 function updateUI() {
   const rows = document.querySelectorAll("#listTable tr");
   rows.forEach((row, k) => {
+    row.classList.toggle("active", k === curIdx);
     if (k === curIdx) {
-      row.classList.add("active");
-      // 옵션 B: 화면에 가려질 때만 혹은 가장 적절한 위치로 스크롤
-      row.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center' // 현재 곡이 리스트의 중앙에 오도록 하여 위아래 곡을 확인하기 편하게 함
-      });
-    } else {
-      row.classList.remove("active");
+      setTimeout(() => {
+        row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 50);
     }
   });
 }
 
 document.getElementById("btnPlayWrap").onclick = () => {
-  if (!isLoaded) { playSong(0); } 
-  else { audio.paused ? audio.play() : audio.pause(); }
+  if (!isLoaded) playSong(0);
+  else audio.paused ? audio.play() : audio.pause();
 };
 
 audio.ontimeupdate = () => {
   if (audio.duration) {
     document.getElementById("curTime").textContent = formatTime(audio.currentTime);
     document.getElementById("durTime").textContent = formatTime(audio.duration);
-    const per = (audio.currentTime / audio.duration) * 100;
-    document.getElementById("progFill").style.width = per + "%";
+    document.getElementById("progFill").style.width = (audio.currentTime / audio.duration * 100) + "%";
   }
 };
 
@@ -547,7 +522,7 @@ audio.onpause = () => {
   document.querySelectorAll(".bar").forEach(b => b.classList.remove("playing"));
 };
 
-audio.onended = () => document.getElementById("btnNext").click();
+audio.onended = () => document.getElementById("btnNext").onclick();
 document.getElementById("btnNext").onclick = () => playSong((curIdx + 1) % curList.length);
 document.getElementById("btnPrev").onclick = () => playSong((curIdx - 1 + curList.length) % curList.length);
 
